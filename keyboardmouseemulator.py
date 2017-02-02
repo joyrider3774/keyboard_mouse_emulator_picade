@@ -65,13 +65,13 @@ while True:
                 right = True         
 
         if (keyevent.keystate == keyevent.key_up):
-            if keyevent.scancode == e.KEY_DOWN:
+            if keyevent.scancode == MOUSEDOWN:
                 down = False
-            if keyevent.scancode == e.KEY_UP:
+            if keyevent.scancode == MOUSEUP:
                 up = False
-            if keyevent.scancode == e.KEY_LEFT:
+            if keyevent.scancode == MOUSELEFT:
                 left = False
-            if keyevent.scancode == e.KEY_RIGHT:
+            if keyevent.scancode == MOUSERIGHT:
                 right = False
 
         if keyevent.scancode == MOUSEBUTTONLEFT:
