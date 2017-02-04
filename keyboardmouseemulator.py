@@ -102,7 +102,7 @@ while not canquit:
       ui.write(e.EV_REL, e.REL_X, -speed)
     if right:
       ui.write(e.EV_REL, e.REL_X, speed)
-  ui.syn()
+    ui.syn()
 
   #keys must be released otherwise when we grab the real input
   #device it never sended a key up making the program running
