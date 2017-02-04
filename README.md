@@ -36,7 +36,7 @@ it will display a lot of information like this
 ('/dev/input/event0', 'Arduino LLC Arduino Leonardo', 'usb-3f980000.usb-1.3/input2')
 {('EV_MSC', 4L): [('MSC_SCAN', 4L)], ('EV_KEY', 1L): [('KEY_ESC', 1L), ('KEY_1', 2L), ('KEY_2', 3L), ('KEY_3', 4L), ('KEY_4', 5L), ('KEY_5', 6L), ('KEY_6', 7L), ('KEY_7', 8L), ('KEY_8', 9L), ('KEY_9', 10L), ('KEY_0', 11L), ('KEY_MINUS', 12L), ('KEY_EQUAL', 13L), ('KEY_BACKSPACE', 14L), ('KEY_TAB', 15L), ('KEY_Q', 16L), ('KEY_W', 17L), ('KEY_E', 18L), ('KEY_R', 19L), ('KEY_T', 20L), ('KEY_Y', 21L), ('KEY_U', 22L), ('KEY_I', 23L), ('KEY_O', 24L), ('KEY_P', 25L), ('KEY_LEFTBRACE', 26L), ('KEY_RIGHTB...........
 ```
-The picade i use uses an arduino leonardo for it's keyboard encoder so i know this is the correct one by looking at the name. Once you identief your keyboard / encoder device look for `/dev/input/event0` line this is what you need to place inside `keyboardinputdevice` variable so it looks like this in the code `keyboardinputdevice = '/dev/input/event0'`in both files. 
+The picade i use uses an arduino leonardo for it's keyboard encoder so i know this is the correct one by looking at the name. Once you identified your keyboard / encoder device look for `/dev/input/event0` line this is what you need to place inside `keyboardinputdevice` variable so it looks like this in the code `keyboardinputdevice = '/dev/input/event0'`in both files. 
 
 ##### Specifying the buttons and joystick values to be used for mouse emulation mode 
 [keyboardmouseemulator.py][keyboardmouseemulator.py] has a section that needs to be modified if you are not using a picade or have no intention on using this only for scummvm on the raspberry pi. You need to specify which keys to use for mouse up / down / left / right (joystick on the picade), mouse button left / middle / right (buttons on the picade) as well as the extra keys you want to use. The default setup is made for scummvm emulator using a picade. these are the values that you need / can change:
@@ -80,7 +80,7 @@ KEYMOUSEMODEKEYTOSEND6 = e.KEY_N
 KEYMOUSEMODEKEYTOPRESS6 = e.KEY_SPACE
 ```
 
-These are the extra keys that you can specify you need to specify one key to press on the picad / your keyboard / encoder and key that will be used in the application. For exmple `KEYMOUSEMODEKEYTOSEND4 = e.KEY_F5` and `KEYMOUSEMODEKEYTOPRESS4 = e.KEY_LEFTCTRL` mean that when i press the button attached to `LEFT_CTRL` on my encoder / keyboard that it won't register the key `LEFT_CTRL´ but `F5` instead. So i'm basically remapping my keys to something the application (scummvm) uses.
+These are the extra keys that you can specify you need to specify one key to press on the picade / your keyboard / encoder and key that will be used in the application. For exmple `KEYMOUSEMODEKEYTOSEND4 = e.KEY_F5` and `KEYMOUSEMODEKEYTOPRESS4 = e.KEY_LEFTCTRL` mean that when i press the button attached to `LEFT_CTRL` on my encoder / keyboard that it won't register the key `LEFT_CTRL´ but `F5` instead. So i'm basically remapping my keys to something the application (scummvm) uses.
 
 to find out these values, use the number codes returned by [findoutkeycodes.py][findoutkeycodes.py] or the key names by looking at the output of [listdevices.py][listdevices.py] when running a ssh terminal. When using [findoutkeycodes.py][findoutkeycodes.py] you need to press a button you picade / keyboard / encoder while the script is running, it will then display a unique number for each key you pressed. Note each value down along with the key / button it belangs to.
 
@@ -92,7 +92,7 @@ you basically need a way to start the mouse emulator then start the game (scummv
 
 ### Usuage using scummvm on retropie 4.0.2 and above with the runncommando scripts
 
-you can use the [runcommand-onend.sh][runcommand-onend.sh] and [runcommand-onstart.sh][runcommand-onstart.sh] files and copy them to `/opt/retropie/configs/all/listdevice.py` so on the same location as the other runcommand in the config/all directory of retropie. it contains code to start the mouse emulator when scummvm starts and quits the emulator when scummvm quits.if the files already exist copy everything but the first line to the end of the files
+you can use the [runcommand-onend.sh][runcommand-onend.sh] and [runcommand-onstart.sh][runcommand-onstart.sh] files and copy them to `/opt/retropie/configs/all/listdevice.py` so on the same location as the other runcommand in the config/all directory of retropie. it contains code to start the mouse emulator when scummvm starts and quits the emulator when scummvm quits.if the files already exist copy everything except the first line to the end of the files
 
 once you start a game using `emulation station` and scummvm is running you need to press the buttons / keys assigned to `KEYMODIFIER` and `MOUSEMODE` at the same time. If you have setup everything correctly the emulator should have been started when scummvm started and you are now in mouse mode, if you use the buttons assigned to `MOUSEUP` `MOUSEDOWN` etc you should see the mouse moving. If not make sure you have specified the correct `/dev/input/event` device in the scripts.
 you can switch back to your normal keyboard / encoder / button configuration by pressing both buttons again.
@@ -102,7 +102,7 @@ you can switch back to your normal keyboard / encoder / button configuration by 
 You can use this [scummvm.sh][scummvm.sh] python script (as an example), that starts the mouse emulator then starts then scummvm emulator and after scummvm quits it quits the mouse emulator. You need to edit your frontend configuration to launch [scummvm.sh][scummvm.sh] instead of the runcommand or instead of directly linking agains the emulator binary.
 
 ## Known problems
-- Some emulators or games use this emulator instead of the actual connected keyboard / mouse / encoder if you leave the mouse emulator running, don't quit it before running another emulator / game / app
+- Some emulators or games use this emulator instead of the actual connected keyboard / mouse / encoder, if you leave the mouse emulator running, don't leave it running for ever !!! quit it before running another emulator / game / app
 
    [picadesite]: <https://shop.pimoroni.com/products/picader>
    [retropiesite]: <https://retropie.org.uk>
