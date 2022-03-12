@@ -15,7 +15,7 @@ I do everything in my spare time for free, if you feel something aided you and y
 
 <a href='https://ko-fi.com/Q5Q3BKI5S' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-### Installation
+## Installation
 
 the repository contains 3 scripts:
  - [keyboardmouseemulator.py][keyboardmouseemulator.py]: the main emulator file at least this file is needed
