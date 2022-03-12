@@ -10,6 +10,11 @@ It currently supports the following:
   - uses [python-evdev][python-evdevsite] so should (theoretically) normally work with any linux variant / system
   - made with retropie in mind, it uses the runcommand addon scripts to start and stop the emulator when scummvm starts (as an exmaple)
 
+## Buy me a "koffie" if you feel like supporting 
+I do everything in my spare time for free, if you feel something aided you and you want to support me, you can always buy me a "koffie" as we say in dutch, no obligations whatsoever...
+
+<a href='https://ko-fi.com/Q5Q3BKI5S' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 ### Installation
 
 the repository contains 3 scripts:
@@ -80,7 +85,7 @@ KEYMOUSEMODEKEYTOSEND6 = e.KEY_N
 KEYMOUSEMODEKEYTOPRESS6 = e.KEY_SPACE
 ```
 
-These are the extra keys that you can specify you need to specify one key to press on the picade / your keyboard / encoder and key that will be used in the application. For exmple `KEYMOUSEMODEKEYTOSEND4 = e.KEY_F5` and `KEYMOUSEMODEKEYTOPRESS4 = e.KEY_LEFTCTRL` mean that when i press the button attached to `LEFT_CTRL` on my encoder / keyboard that it won't register the key `LEFT_CTRL´ but `F5` instead. So i'm basically remapping my keys to something the application (scummvm) uses.
+These are the extra keys that you can specify you need to specify one key to press on the picade / your keyboard / encoder and key that will be used in the application. For exmple `KEYMOUSEMODEKEYTOSEND4 = e.KEY_F5` and `KEYMOUSEMODEKEYTOPRESS4 = e.KEY_LEFTCTRL` mean that when i press the button attached to `LEFT_CTRL` on my encoder / keyboard that it won't register the key `LEFT_CTRLÂ´ but `F5` instead. So i'm basically remapping my keys to something the application (scummvm) uses.
 
 to find out these values, use the number codes returned by [findoutkeycodes.py][findoutkeycodes.py] or the key names by looking at the output of [listdevices.py][listdevices.py] when running a ssh terminal. When using [findoutkeycodes.py][findoutkeycodes.py] you need to press a button you picade / keyboard / encoder while the script is running, it will then display a unique number for each key you pressed. Note each value down along with the key / button it belangs to.
 
